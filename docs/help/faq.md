@@ -190,7 +190,7 @@ Quick answers plus deeper troubleshooting for real-world setups (local dev, VPS,
 - [Chat commands, aborting tasks, and “it won’t stop”](#chat-commands-aborting-tasks-and-it-wont-stop)
   - [How do I stop internal system messages from showing in chat](#how-do-i-stop-internal-system-messages-from-showing-in-chat)
   - [How do I stop/cancel a running task?](#how-do-i-stopcancel-a-running-task)
-  - [How do I send a Discord message from Telegram? (“Cross-context messaging denied”)](#how-do-i-send-a-discord-message-from-telegram-crosscontext-messaging-denied)
+  - [Send a Discord or WhatsApp message from Telegram (cross-context denied)](#send-a-discord-or-whatsapp-message-from-telegram-cross-context-denied)
   - [Why does it feel like the bot “ignores” rapid‑fire messages?](#why-does-it-feel-like-the-bot-ignores-rapidfire-messages)
 
 ## First 60 seconds if something's broken
@@ -2685,32 +2685,27 @@ Slash commands overview: see [Slash commands](/tools/slash-commands).
 
 Most commands must be sent as a **standalone** message that starts with `/`, but a few shortcuts (like `/status`) also work inline for allowlisted senders.
 
-### How do I send a Discord message from Telegram Crosscontext messaging denied
+### Send a Discord or WhatsApp message from Telegram (cross-context denied)
 
-Clawdbot blocks **cross‑provider** messaging by default. If a tool call is bound
-to Telegram, it won’t send to Discord unless you explicitly allow it.
+Clawdbot blocks **cross-provider** messaging by default. If a message tool call is
+bound to Telegram, it won't send to Discord or WhatsApp unless you explicitly allow it.
 
-Enable cross‑provider messaging for the agent:
+Enable cross-provider messaging:
 
 ```json5
 {
-  agents: {
-    defaults: {
-      tools: {
-        message: {
-          crossContext: {
-            allowAcrossProviders: true,
-            marker: { enabled: true, prefix: "[from {channel}] " }
-          }
-        }
+  tools: {
+    message: {
+      crossContext: {
+        allowAcrossProviders: true,
+        marker: { enabled: true, prefix: "[from {channel}] " }
       }
     }
   }
 }
 ```
 
-Restart the gateway after editing config. If you only want this for a single
-agent, set it under `agents.list[].tools.message` instead.
+Restart the gateway after editing config.
 
 ### Why does it feel like the bot ignores rapidfire messages
 

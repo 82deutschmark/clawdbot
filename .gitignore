@@ -69,3 +69,7 @@ USER.md
 
 # local tooling
 .serena/
+
+# Personal notes (keep out of repo)
+docs/personal-configs/
+docs/plans/

@@ -348,6 +348,7 @@ Notes:
 - `send` routes WhatsApp via the Gateway; other channels go direct.
 - `poll` uses the Gateway for WhatsApp and MS Teams; Discord polls go direct.
 - When a message tool call is bound to an active chat session, sends are constrained to that session’s target to avoid cross-context leaks.
+- To allow cross-provider sends (e.g. Telegram -> Discord), set `tools.message.crossContext.allowAcrossProviders: true`.
 
 ### `cron`
 Manage Gateway cron jobs and wakeups.
