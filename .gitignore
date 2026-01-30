@@ -75,3 +75,4 @@ USER.md
 # Temporary config files with potential secrets
 temp_config.json
 **/temp_config.json
+nul
