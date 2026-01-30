@@ -71,3 +71,7 @@ USER.md
 
 # local tooling
 .serena/
+
+# Temporary config files with potential secrets
+temp_config.json
+**/temp_config.json
