@@ -1,17 +1,14 @@
 {
-  "name": "@openclaw/memory-core",
-  "version": "2026.1.29",
+  "name": "@clawdbot/memory-core",
+  "version": "2026.1.25",
   "type": "module",
-  "description": "OpenClaw core memory search plugin",
-  "openclaw": {
+  "description": "Clawdbot core memory search plugin",
+  "clawdbot": {
     "extensions": [
       "./index.ts"
     ]
   },
   "peerDependencies": {
-    "openclaw": ">=2026.1.26"
-  },
-  "devDependencies": {
-    "openclaw": "workspace:*"
+    "clawdbot": "workspace:*"
   }
 }
